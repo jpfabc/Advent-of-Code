@@ -63,28 +63,69 @@ function createArray(){
     let highestX=0;
     let highestY=0;
     if(getHighestX1() > getHighestX2()){
-        highestX = getHighestX1();
+        highestX = getHighestX1()+1;
     }else{
-        highestX = getHighestX2();
+        highestX = getHighestX2()+1;
     }
     if(getHighestY1() > getHighestY2()){
-        highestY = getHighestY1();
+        highestY = getHighestY1()+1;
     }else{
-        highestY = getHighestY2();
+        highestY = getHighestY2()+1;
     }
     for(let i = 0; i < highestY; i++){
         map.push(new Array(highestX));
     }
 }
 
-function addPoint(){
-    
+function addPoint(x1,y1,x2,y2){
+    if(x1<x2){
+        for(x1;x1<=x2;x1++){
+            if(map[y1][x1] === undefined ){
+                map[y1][x1] = 1;
+            }else{
+                map[y1][x1]++;
+            }
+        }
+    }else if(x1>x2){
+        for(x1;x1>=x2;x1--){
+            if(map[y1][x1] === undefined ){
+                map[y1][x1] = 1;
+            }else{
+                map[y1][x1]++;
+            }
+        }
+    }else if(y1<y2){
+        for(y1;y1<=y2;y1++){
+            if(map[y1][x1] === undefined ){
+                map[y1][x1] = 1;
+            }else{
+                map[y1][x1]++;
+            }
+        }
+    }else{
+        for(y1;y1>=y2;y1--){
+            if(map[y1][x1] === undefined ){
+                map[y1][x1] = 1;
+            }else{
+                map[y1][x1]++;
+            }
+        }
+    }
 }
 
 function addPoints(){
-    
+    for (let i = 0; i < input.length; i++){
+        addPoint(input[i][0],input[i][1],input[i][2],input[i][3])
+    }
+    return input;
 }
 
 function checkAmountOfPoints(){
-    
+    cleanInput();
+    createArray();
+    addPoints();
+    for (let i = 0; i < map.length; i++){
+        map[i] = map[i].filter(x => x >= 2);
+    }
+    return map.filter(x=>x.length>0).map(x=>x.length).reduce((x,y)=>x+y);
 }
