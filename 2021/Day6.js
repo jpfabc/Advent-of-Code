@@ -24,7 +24,6 @@ function prepareArrays(){
 
 
 function passDay(zeroDays,oneDays,twoDays,threeDays,fourDays,fiveDays,sixDays,sevenDays,eightDays){
-    debugger;
     zeroDaysFish = oneDays;
     oneDaysFish = twoDays;
     twoDaysFish = threeDays;
