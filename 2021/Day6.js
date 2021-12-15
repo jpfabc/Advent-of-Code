@@ -10,9 +10,6 @@ let sixDaysFish = 0;
 let sevenDaysFish = 0;
 let eightDaysFish = 0;
 
-function addFishes(amountOfFishes){
-    return eightDaysFish = amountOfFishes;
-}
 
 function prepareArrays(){
     oneDaysFish = input.filter(x => x == 1).length;
@@ -23,16 +20,16 @@ function prepareArrays(){
 }
 
 
-function passDay(zeroDays,oneDays,twoDays,threeDays,fourDays,fiveDays,sixDays,sevenDays,eightDays){
-    zeroDaysFish = oneDays;
-    oneDaysFish = twoDays;
-    twoDaysFish = threeDays;
-    threeDaysFish = fourDays;
-    fourDaysFish = fiveDays;
-    fiveDaysFish = sixDays;
-    sixDaysFish = sevenDays+zeroDays;
-    sevenDaysFish = eightDays;
-    eightDaysFish = zeroDays;
+function passDay(amountOfDayZeroFishes,amountOfDayOneFishes,amountOfDayTwoFishes,amountOfDayThreeFishes,amountOfDayFourFishes,amountOfDayFiveFishes,amountOfDaySixFishes,amountOfDaySevenFishes,amountOfDayEightFishes){
+    zeroDaysFish = amountOfDayOneFishes;
+    oneDaysFish = amountOfDayTwoFishes;
+    twoDaysFish = amountOfDayThreeFishes;
+    threeDaysFish = amountOfDayFourFishes;
+    fourDaysFish = amountOfDayFiveFishes;
+    fiveDaysFish = amountOfDaySixFishes;
+    sixDaysFish = amountOfDaySevenFishes+amountOfDayZeroFishes;
+    sevenDaysFish = amountOfDayEightFishes;
+    eightDaysFish = amountOfDayZeroFishes;
     return;
 }
 
