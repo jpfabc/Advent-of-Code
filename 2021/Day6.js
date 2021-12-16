@@ -11,7 +11,7 @@ let sevenDaysFish = 0;
 let eightDaysFish = 0;
 
 
-function prepareArrays(){
+function prepareFishes(){
     oneDaysFish = input.filter(x => x == 1).length;
     twoDaysFish = input.filter(x => x == 2).length;
     threeDaysFish = input.filter(x => x == 3).length;
@@ -34,7 +34,7 @@ function passDay(amountOfDayZeroFishes,amountOfDayOneFishes,amountOfDayTwoFishes
 }
 
 function getAllFishes(days){
-    prepareArrays();
+    prepareFishes();
     for(let i = 0; i < days; i++){
         passDay(zeroDaysFish,oneDaysFish,twoDaysFish,threeDaysFish, fourDaysFish,fiveDaysFish,sixDaysFish,sevenDaysFish,eightDaysFish);
     }
