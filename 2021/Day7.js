@@ -34,4 +34,35 @@ function getTotalFuel(){
     return storePositionsValidated().sort(sortHighest)[0][1];
 }
 
+//Part 2
 
+function sum(number) { 
+    if(number == 0){
+        return 0;
+    }else{
+        return number + sum(number-1);
+    }
+}
+
+function storePositionsValidatedPart2(){
+    for (let i = 0; i < input.length; i++){
+        if(positionsValidated[0] !== undefined){
+            if(positionsValidated.filter(x => x[0] == input[i]).length > 0){
+                continue;
+            }else{
+                positionsValidated.push([input[i],getFuelNeededForPositionPart2(input,input[i])]);
+            }
+        }else{
+            positionsValidated.push([input[i],getFuelNeededForPositionPart2(input,input[i])]);
+        }
+    }
+    return positionsValidated;
+}
+
+function getFuelNeededForPositionPart2(array, position) {
+    return array.reduce((n, x) => n + sum(Math.abs(x-position)),0);
+}
+
+function getTotalFuelPart2(){
+    return storePositionsValidatedPart2().sort(sortHighest)[0][1];
+}
